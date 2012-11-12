@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  li
+    a(href="/how-it-works") How it works
+  li 
+    a(href="/faq") FAQ
+  form(action="/",method="post")
+    p
+      textarea(rows="10",cols="50",name="txtInput")
+        | here
+        | is
+        | an:example
+        | of:how:this:works
+    p
+      input(type="submit",name="cmdGenerate",value="Generate JSON")
