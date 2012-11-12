@@ -1,5 +1,13 @@
 var jsonify = require('../lib/helpers/jsonify');
+var coffeeScript = require('coffee-script');
 
+function compile(input) {
+	return coffeeScript.compile(input, { bare: true });
+}
+
+function parse(input) {
+	return eval(compile(input));
+}
 
 var controller = {
   
@@ -21,7 +29,8 @@ var controller = {
   
   // POST
   create: function(req,res){
-    res.send(jsonify(req.body.txtInput));
+    //res.send(jsonify(req.body.txtInput));
+	res.send(compile(req.body.txtInput));
   },
   
   // GET
